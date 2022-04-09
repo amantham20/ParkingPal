@@ -26,16 +26,29 @@ class _LoginPageState extends State<LoginPage> {
           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(Icons.airline_seat_flat),
-            const Text('Login'),
+            const Text(
+              'Sign Up',
+              style: TextStyle(
+                  fontSize: 25, fontWeight: FontWeight.bold, color: Colors.red),
+            ),
+            logo(150),
+            const Text(
+              'Parking Pal',
+              style: TextStyle(
+                  fontSize: 30, fontWeight: FontWeight.bold, color: Colors.red),
+            ),
             // ignore: prefer_const_constructors
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
                 controller: emailController,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'username',
+                  hintText: 'email',
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
                 ),
               ),
             ),
@@ -44,14 +57,23 @@ class _LoginPageState extends State<LoginPage> {
               child: TextField(
                 controller: passwordController,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                   hintText: 'password',
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.fromLTRB(0, 64, 0, 8),
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(250, 50),
+                    primary: Colors.green,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50))),
                 onPressed: () async {
                   try {
                     await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -65,17 +87,41 @@ class _LoginPageState extends State<LoginPage> {
                     print('error');
                   }
                 },
-                child: const Text('Sign in'),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    'Sign in',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                ),
               ),
             ),
 
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(250, 50),
+                    primary: Colors.white,
+                    side: const BorderSide(
+                      width: 1.0,
+                      color: Colors.green,
+                    ),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50))),
                 onPressed: () {
                   movePage(SignupPage(), context);
                 },
-                child: const Text('Sign up'),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    'Sign up',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.green),
+                  ),
+                ),
               ),
             ),
           ],

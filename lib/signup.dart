@@ -121,11 +121,14 @@ class _SignupPageState extends State<SignupPage> {
                         MaterialStateProperty.all<Color>(Colors.green)),
                 onPressed: () async {
                   try {
-                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                        email: username.text, password: password1.text);
-                    setState(() {
-                      movePage(HomePage(), context);
-                    });
+                    if (errorMessages(0) == null && errorMessages(1) == null) {
+                      await FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                              email: username.text, password: password1.text);
+                      setState(() {
+                        movePage(HomePage(), context);
+                      });
+                    }
                   } catch (e) {
                     setState(() {
                       errorBool = true;
