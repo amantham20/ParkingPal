@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
 import 'package:parkingpal/signup.dart';
 
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -51,9 +51,12 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () {
-                  print('Login button pressed');
-                  print('Email: ${emailController.text}');
+                onPressed: () async {
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                    email: emailController.text,
+                    password: passwordController.text,
+                  );
+                  setState(() {});
                 },
                 child: const Text('Sign in'),
               ),

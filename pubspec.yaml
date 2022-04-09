@@ -36,10 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   map: ^1.0.0
   firebase_auth: ^3.3.13
+  firebase_core:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
