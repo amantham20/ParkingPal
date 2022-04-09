@@ -56,6 +56,17 @@ class _LoginPageState extends State<LoginPage> {
                 child: const Text('Sign in'),
               ),
             ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  print('Login button pressed');
+                  print('Email: ${emailController.text}');
+                },
+                child: const Text('Sign up'),
+              ),
+            ),
           ],
         ),
       ),
