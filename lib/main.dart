@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parkingpal/login.dart';
+import 'package:parkingpal/signup.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +40,7 @@ class _AppState extends State<App> {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: SignupPage(),
     );
   }
 }
