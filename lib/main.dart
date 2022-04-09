@@ -40,6 +40,6 @@ class _AppState extends State<App> {
           primarySwatch: Colors.blue,
         ),
         debugShowCheckedModeBanner: false,
-        home: LoginPage());
+        home: HomePage());
   }
 }
