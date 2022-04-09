@@ -105,9 +105,14 @@ class _SignupPageState extends State<SignupPage> {
               child: TextField(
                 controller: username,
                 decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    hintText: 'email',
-                    errorText: errorMessages(0)),
+                  hintText: 'email',
+                  errorText: errorMessages(0),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -123,10 +128,15 @@ class _SignupPageState extends State<SignupPage> {
                 obscureText: true,
                 controller: password1,
                 decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    iconColor: Colors.black,
-                    hintText: 'password',
-                    errorText: errorMessages(1)),
+                  iconColor: Colors.black,
+                  hintText: 'password',
+                  errorText: errorMessages(1),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -142,9 +152,14 @@ class _SignupPageState extends State<SignupPage> {
                 obscureText: true,
                 controller: password2,
                 decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    hintText: 'password confirmation',
-                    errorText: errorMessages(1)),
+                  hintText: 'password confirmation',
+                  errorText: errorMessages(1),
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -159,15 +174,28 @@ class _SignupPageState extends State<SignupPage> {
              * The code for the terms button
              */
             Padding(
-              padding: const EdgeInsets.all(0.0),
+              padding: const EdgeInsets.all(5.0),
               child: ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.green)),
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(150, 50),
+                    primary: Colors.white,
+                    side: const BorderSide(
+                      width: 1.0,
+                      color: Colors.green,
+                    ),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50))),
                 onPressed: () {
                   movePage(const TermsPage(), context);
                 },
-                child: const Text('Terms and Conditions.'),
+                child: const Text(
+                  'Terms and Conditions.',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: Colors.green,
+                  ),
+                ),
               ),
             ),
             const SizedBox(
@@ -180,10 +208,14 @@ class _SignupPageState extends State<SignupPage> {
             Padding(
               padding: const EdgeInsetsDirectional.only(top: 12.0, bottom: 0.0),
               child: ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.green)),
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(250, 50),
+                    primary: Colors.green,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50))),
                 onPressed: () async {
+                  print(errorMessages(0));
+                  print(errorMessages(1));
                   if (errorMessages(0) == null && errorMessages(1) == null) {
                     try {
                       await FirebaseAuth.instance
@@ -195,11 +227,18 @@ class _SignupPageState extends State<SignupPage> {
                     } catch (e) {
                       setState(() {
                         errorBool = true;
+                        print('error: $e');
                       });
                     }
                   }
                 },
-                child: const Text('Sign Up'),
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white),
+                ),
               ),
             ),
           ],

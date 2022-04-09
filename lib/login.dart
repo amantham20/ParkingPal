@@ -65,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                       EdgeInsets.symmetric(vertical: 0, horizontal: 20),
                   hintText: 'password',
                 ),
+                obscureText: true,
               ),
             ),
             Padding(
