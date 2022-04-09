@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
+import 'package:parkingpal/home.dart';
 import 'package:parkingpal/signup.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -52,11 +53,17 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 onPressed: () async {
-                  await FirebaseAuth.instance.signInWithEmailAndPassword(
-                    email: emailController.text,
-                    password: passwordController.text,
-                  );
-                  setState(() {});
+                  try {
+                    await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: emailController.text,
+                      password: passwordController.text,
+                    );
+                    setState(() {
+                      movePage(HomePage(), context);
+                    });
+                  } catch (e) {
+                    print('error');
+                  }
                 },
                 child: const Text('Sign in'),
               ),

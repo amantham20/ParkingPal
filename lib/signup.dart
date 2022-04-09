@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:parkingpal/globalvar.dart';
+import 'package:parkingpal/home.dart';
+
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
 
@@ -14,7 +19,7 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController username = TextEditingController();
   TextEditingController password1 = TextEditingController();
   TextEditingController password2 = TextEditingController();
-
+  bool errorBool = false;
   /*
    * Sends the error message for if the attempted sign up information is invalid
    * :param: priority: determines which message would be shown for which box
@@ -58,7 +63,7 @@ class _SignupPageState extends State<SignupPage> {
                 controller: username,
                 decoration: InputDecoration(
                     border: const OutlineInputBorder(),
-                    hintText: 'username',
+                    hintText: 'email',
                     errorText: errorMessages(0)),
               ),
             ),
@@ -99,18 +104,27 @@ class _SignupPageState extends State<SignupPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    if (errorMessages(0) == null && errorMessages(1) == null) {
-                      /*
-                      * log the data into server
-                      * send user to home screen
-                      */
-                      print(username.text);
-                      print(password1.text);
-                      print(password2.text);
-                    }
-                  });
+                onPressed: () async {
+                  try {
+                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: username.text, password: password1.text);
+                    setState(() {
+                      movePage(HomePage(), context);
+                    });
+                  } catch (e) {
+                    setState(() {
+                      errorBool = true;
+                      print("error");
+                    });
+                  }
+                  // setState(() async {
+                  //   // if (errorMessages(0) == null && errorMessages(1) == null) {
+                  //   /*
+                  //     * log the data into server
+                  //     * send user to home screen
+                  //     */
+
+                  // });
                 },
                 child: const Text('Sign Up'),
               ),
