@@ -1,4 +1,8 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:parkingpal/globalvar.dart';
+import 'package:parkingpal/login.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -36,19 +40,26 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       /*
        * The code to build the label of the page at the top
        */
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 100, 16, 0),
+        padding: const EdgeInsets.fromLTRB(16, 50, 16, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(Icons.airline_seat_flat),
             const Text(
-              'Sign Up Page',
+              'Sign Up',
+              style: TextStyle(
+                  fontSize: 25, fontWeight: FontWeight.bold, color: Colors.red),
             ),
-
+            logo(150),
+            const Text(
+              'Parking Pal',
+              style: TextStyle(
+                  fontSize: 30, fontWeight: FontWeight.bold, color: Colors.red),
+            ),
             /*
              * The code to build the username entry of the page, top box
              */
@@ -73,6 +84,7 @@ class _SignupPageState extends State<SignupPage> {
                 controller: password1,
                 decoration: InputDecoration(
                     border: const OutlineInputBorder(),
+                    iconColor: Colors.black,
                     hintText: 'password',
                     errorText: errorMessages(1)),
               ),
@@ -99,6 +111,9 @@ class _SignupPageState extends State<SignupPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green)),
                 onPressed: () {
                   setState(() {
                     if (errorMessages(0) == null && errorMessages(1) == null) {
@@ -113,6 +128,22 @@ class _SignupPageState extends State<SignupPage> {
                   });
                 },
                 child: const Text('Sign Up'),
+              ),
+            ),
+
+            /*
+             * The code for the login button
+             */
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green)),
+                onPressed: () {
+                  movePage(const LoginPage(), context);
+                },
+                child: const Text('Login'),
               ),
             ),
           ],
