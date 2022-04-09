@@ -1,8 +1,7 @@
-// import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
 import 'package:parkingpal/login.dart';
+import 'package:parkingpal/TermsPage.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -30,10 +29,12 @@ class _SignupPageState extends State<SignupPage> {
    * :return: the error message, if no errors arise for that box, returns null
    */
   String? errorMessages(int priority) {
-    if (username.text.length < 5 && priority == 0) {
+    if (0 < username.text.length && username.text.length < 5 && priority == 0) {
       return "Username is too short";
     }
-    if (password1.text.length < 7 && priority == 1) {
+    if (0 < password1.text.length &&
+        username.text.length < 7 &&
+        priority == 1) {
       return "Password is too short";
     }
     if (password1.text != password2.text && priority == 1) {
@@ -54,10 +55,40 @@ class _SignupPageState extends State<SignupPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
-              'Sign Up',
-              style: TextStyle(
-                  fontSize: 25, fontWeight: FontWeight.bold, color: Colors.red),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                /*
+                 * The code for the login button
+                 */
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        fixedSize: MaterialStateProperty.all<Size?>(
+                            const Size(75, 25)),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.green)),
+                    onPressed: () {
+                      movePage(const LoginPage(), context);
+                    },
+                    child: const Text('Login'),
+                  ),
+                ),
+                const Flexible(
+                    child: Center(
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red),
+                  ),
+                )),
+                const SizedBox(
+                  width: 75,
+                )
+              ],
             ),
             logo(150),
             const Text(
@@ -65,6 +96,7 @@ class _SignupPageState extends State<SignupPage> {
               style: TextStyle(
                   fontSize: 30, fontWeight: FontWeight.bold, color: Colors.red),
             ),
+
             /*
              * The code to build the username entry of the page, top box
              */
@@ -77,6 +109,9 @@ class _SignupPageState extends State<SignupPage> {
                     hintText: 'email',
                     errorText: errorMessages(0)),
               ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
 
             /*
@@ -94,6 +129,9 @@ class _SignupPageState extends State<SignupPage> {
                     errorText: errorMessages(1)),
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
 
             /*
              * The code to build the password re-entry of the page, bottom box
@@ -109,55 +147,59 @@ class _SignupPageState extends State<SignupPage> {
                     errorText: errorMessages(1)),
               ),
             ),
-
-            /*
-             * The code for the submit button
-             */
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.green)),
-                onPressed: () async {
-                  try {
-                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                        email: username.text, password: password1.text);
-                    setState(() {
-                      movePage(HomePage(), context);
-                    });
-                  } catch (e) {
-                    setState(() {
-                      errorBool = true;
-                      print("error");
-                    });
-                  }
-                  // setState(() async {
-                  //   // if (errorMessages(0) == null && errorMessages(1) == null) {
-                  //   /*
-                  //     * log the data into server
-                  //     * send user to home screen
-                  //     */
-
-                  // });
-                },
-                child: const Text('Sign Up'),
-              ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'By signing up you are agreeing to our:',
+              style: TextStyle(fontSize: 15, color: Colors.black),
             ),
 
             /*
-             * The code for the login button
+             * The code for the terms button
              */
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(0.0),
               child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.green)),
                 onPressed: () {
-                  movePage(const LoginPage(), context);
+                  movePage(const TermsPage(), context);
                 },
-                child: const Text('Login'),
+                child: const Text('Terms and Conditions.'),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+
+            /*
+             * The code for the sign-up button
+             */
+            Padding(
+              padding: const EdgeInsetsDirectional.only(top: 12.0, bottom: 0.0),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.green)),
+                onPressed: () async {
+                  if (errorMessages(0) == null && errorMessages(1) == null) {
+                    try {
+                      await FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                              email: username.text, password: password1.text);
+                      setState(() {
+                        movePage(const HomePage(), context);
+                      });
+                    } catch (e) {
+                      setState(() {
+                        errorBool = true;
+                      });
+                    }
+                  }
+                },
+                child: const Text('Sign Up'),
               ),
             ),
           ],
