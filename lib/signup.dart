@@ -32,8 +32,15 @@ class _SignupPageState extends State<SignupPage> {
     if (0 < username.text.length && username.text.length < 5 && priority == 0) {
       return "Username is too short";
     }
+    if ((!username.text.contains('@') ||
+            !username.text.contains('.') ||
+            (username.text.indexOf('@') == username.text.length - 1) ||
+            (username.text.indexOf('.') == username.text.length - 1)) &&
+        priority == 0) {
+      return "Email is not a valid email";
+    }
     if (0 < password1.text.length &&
-        username.text.length < 7 &&
+        password1.text.length < 7 &&
         priority == 1) {
       return "Password is too short";
     }
@@ -184,7 +191,12 @@ class _SignupPageState extends State<SignupPage> {
                     backgroundColor:
                         MaterialStateProperty.all<Color>(Colors.green)),
                 onPressed: () async {
-                  if (errorMessages(0) == null && errorMessages(1) == null) {
+                  if (errorMessages(1) != null || errorMessages(0) != null) {
+                    setState(() {
+                      errorBool = true;
+                      print("error");
+                    });
+                  } else {
                     try {
                       await FirebaseAuth.instance
                           .createUserWithEmailAndPassword(
@@ -195,6 +207,7 @@ class _SignupPageState extends State<SignupPage> {
                     } catch (e) {
                       setState(() {
                         errorBool = true;
+                        print("error $e");
                       });
                     }
                   }
