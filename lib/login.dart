@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -8,6 +11,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,22 +23,24 @@ class _LoginPageState extends State<LoginPage> {
           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(Icons.airline_seat_flat),
-            Text('Login'),
+            const Icon(Icons.airline_seat_flat),
+            const Text('Login'),
             // ignore: prefer_const_constructors
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: const TextField(
-                decoration: InputDecoration(
+              child: TextField(
+                controller: emailController,
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'username',
                 ),
               ),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
-                decoration: InputDecoration(
+                controller: passwordController,
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'password',
                 ),
@@ -43,8 +51,9 @@ class _LoginPageState extends State<LoginPage> {
               child: ElevatedButton(
                 onPressed: () {
                   print('Login button pressed');
+                  print('Email: ${emailController.text}');
                 },
-                child: const Text('Enabled'),
+                child: const Text('Sign in'),
               ),
             ),
           ],
