@@ -4,6 +4,7 @@ import 'package:parkingpal/comp/customnav.dart';
 import 'package:map/map.dart';
 import 'package:latlng/latlng.dart';
 import 'package:flutter/gestures.dart';
+import 'package:geoflutterfire/geoflutterfire.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,6 +14,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isDrawerOpen = false;
+  bool showDetails = false;
   final controller = MapController(
     location: LatLng(42.71911, -84.484568),
   );
@@ -150,53 +153,117 @@ class _HomePageState extends State<HomePage> {
         children: [
           createMap(),
           Stack(
-            children: <Widget>[
-              Container(
+            alignment: Alignment.topCenter,
+            children: [
+              AnimatedContainer(
+                // Define how long the animation should take.
+                duration: const Duration(seconds: 1),
+                // Provide an optional curve to make the animation feel smoother.
+                curve: Curves.fastOutSlowIn,
+                margin: EdgeInsets.only(top: 10),
+                height: MediaQuery.of(context).size.height /
+                    (isDrawerOpen ? 1 : 4.5),
                 decoration: const BoxDecoration(
                   color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10)),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 25.0,
+                      color: Color.fromRGBO(0, 0, 0, 0.25),
+                    ),
+                    BoxShadow(),
+                    BoxShadow(),
+                    BoxShadow(),
+                  ],
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: const [
-                          Icon(Icons.location_pin),
-                          Text(
-                            "East Lansing",
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: const [
+                                Icon(Icons.location_pin),
+                                Text(
+                                  "East Lansing",
+                                  style: TextStyle(
+                                    color: Colors.green,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
+                            Row(
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.filter_alt,
+                                    color: Colors.green,
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView(
+                        scrollDirection:
+                            showDetails ? Axis.vertical : Axis.horizontal,
+                        children: [
+                          Text("TesT"),
+                          SizedBox(height: 10),
+                          Text("TesT"),
+                          SizedBox(height: 10),
+                          Text("TesT"),
                         ],
                       ),
-                      Row(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.filter_alt,
-                              color: Colors.blue,
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 50 / 2)
+                  ],
                 ),
               ),
+              CircleAvatar(
+                backgroundColor: Colors.white,
+                child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isDrawerOpen = !isDrawerOpen;
+                      });
+                      Future.delayed(
+                          Duration(milliseconds: isDrawerOpen ? 0 : 800), () {
+                        setState(() {
+                          showDetails = !showDetails;
+                        });
+                      });
+                    },
+                    icon: Icon(
+                      isDrawerOpen
+                          ? Icons.arrow_drop_down_rounded
+                          : Icons.arrow_drop_up_rounded,
+                    )),
+              ),
             ],
-          ),
+          )
         ],
       ),
 
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
         onPressed: _gotoDefault,
         tooltip: 'My Location',
-        child: Icon(Icons.my_location),
+        child: Icon(Icons.my_location, color: Colors.white),
       ),
     );
   }
