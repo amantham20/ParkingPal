@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parkingpal/comp/customdraw.dart';
 import 'package:parkingpal/comp/customnav.dart';
 import 'package:map/map.dart';
 import 'package:latlng/latlng.dart';
@@ -65,12 +66,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(),
-      // create a map here
-      body: MapLayoutBuilder(
+  createMap() {
+    return MapLayoutBuilder(
         controller: controller,
         builder: (context, transformer) {
           final markerPositions =
@@ -139,8 +136,63 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           );
-        },
+        });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(),
+      drawer: const CustomDrawer(),
+      // create a map here
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          createMap(),
+          Stack(
+            children: <Widget>[
+              Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: const [
+                          Icon(Icons.location_pin),
+                          Text(
+                            "East Lansing",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.filter_alt,
+                              color: Colors.blue,
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: _gotoDefault,
         tooltip: 'My Location',

@@ -21,21 +21,33 @@ class _CustomAppBarState extends State<CustomAppBar> {
     super.initState();
   }
 
+  // create a custom nav bar with 2 buttons and logo in the middle. One button for the menu and one for the back
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-        backgroundColor: Colors.white,
-        title: logo(50),
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          },
+      title: logo(50),
+      centerTitle: true,
+      backgroundColor: Colors.white,
+      elevation: 0,
+      leading: IconButton(
+        icon: const Icon(
+          Icons.menu,
+          color: Colors.black,
+        ),
+        onPressed: () {
+          // open the drawer
+          Scaffold.of(context).openDrawer();
+        },
+      ),
+      actions: [
+        IconButton(
           icon: const Icon(
-            Icons.menu_rounded,
-            size: 25.0,
-            color: Colors.green,
+            Icons.arrow_back,
+            color: Colors.black,
           ),
-        ));
+          onPressed: () {},
+        ),
+      ],
+    );
   }
 
   @override

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "488171247317",
+    "project_id": "parkingpal-ff21a",
+    "storage_bucket": "parkingpal-ff21a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488171247317:android:43943d68280bcd1c78b45c",
+        "android_client_info": {
+          "package_name": "com.example.parkingpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488171247317-90hu28t60446vbdraairuvgmkh66csr1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSRKEztiAfNb3ddpsg_b7GzNYK1acpkRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488171247317-90hu28t60446vbdraairuvgmkh66csr1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "488171247317-720fqql868ceo36seq52hjgjbd7f3sli.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.amaniscool.parkingpal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

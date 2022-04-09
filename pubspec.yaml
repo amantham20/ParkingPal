@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   map: ^1.0.0
   firebase_auth: ^3.3.13
-  firebase_core:
+  firebase_core: 
 
 dev_dependencies:
   flutter_test:
