@@ -44,7 +44,10 @@ class _CustomAppBarState extends State<CustomAppBar> {
             Icons.arrow_back,
             color: Colors.black,
           ),
-          onPressed: () {},
+          onPressed: () {
+            // go back to the previous page
+            Navigator.pop(context);
+          },
         ),
       ],
     );

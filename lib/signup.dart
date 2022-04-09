@@ -71,16 +71,12 @@ class _SignupPageState extends State<SignupPage> {
                  */
                 Padding(
                   padding: const EdgeInsets.all(0.0),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                        fixedSize: MaterialStateProperty.all<Size?>(
-                            const Size(75, 25)),
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.green)),
+                  // make a backbutton icon
+                  child: IconButton(
+                    icon: Icon(Icons.arrow_back),
                     onPressed: () {
-                      movePage(const LoginPage(), context);
+                      Navigator.pop(context);
                     },
-                    child: const Text('Login'),
                   ),
                 ),
                 const Flexible(
