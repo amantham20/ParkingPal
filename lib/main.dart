@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parkingpal/home.dart';
 import 'package:parkingpal/login.dart';
 import 'package:parkingpal/signup.dart';
 
