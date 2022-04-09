@@ -73,7 +73,7 @@ class _SignupPageState extends State<SignupPage> {
                   padding: const EdgeInsets.all(0.0),
                   // make a backbutton icon
                   child: IconButton(
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -83,14 +83,16 @@ class _SignupPageState extends State<SignupPage> {
                     child: Center(
                   child: Text(
                     'Sign Up',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
+                    ),
                   ),
                 )),
                 const SizedBox(
-                  width: 75,
+                  width: 50,
                 )
               ],
             ),
