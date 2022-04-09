@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:parkingpal/globalvar.dart';
+import 'package:parkingpal/signup.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -37,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
                 controller: passwordController,
                 decoration: const InputDecoration(
@@ -46,6 +48,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+
+            // todo: get the fucking login to fucking work
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
@@ -54,6 +58,17 @@ class _LoginPageState extends State<LoginPage> {
                   print('Email: ${emailController.text}');
                 },
                 child: const Text('Sign in'),
+              ),
+            ),
+
+            // todo: get a back button in the signup form
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  movePage(SignupPage(), context);
+                },
+                child: const Text('Sign up'),
               ),
             ),
           ],
