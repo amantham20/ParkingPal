@@ -36,7 +36,8 @@ class _SignupPageState extends State<SignupPage> {
             !username.text.contains('.') ||
             (username.text.indexOf('@') == username.text.length - 1) ||
             (username.text.indexOf('.') == username.text.length - 1)) &&
-        priority == 0) {
+        priority == 0 &&
+        username.text.length > 0) {
       return "Email is not a valid email";
     }
     if (0 < password1.text.length &&
