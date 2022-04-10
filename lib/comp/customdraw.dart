@@ -40,21 +40,21 @@ class _CustomDrawerState extends State<CustomDrawer> {
             leading: const Icon(Icons.info),
             title: const Text('About'),
             onTap: () {
-              movePage(AboutPage(), context);
+              movePage(const AboutPage(), context);
             },
           ),
           ListTile(
             leading: const Icon(Icons.add_location),
             title: const Text('Add Listing'),
             onTap: () {
-              movePage(ListingPage(), context);
+              movePage(const ListingPage(), context);
             },
           ),
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('Settings'),
             onTap: () {
-              movePage(SettingsPage(), context);
+              movePage(const SettingsPage(), context);
             },
           ),
         ],

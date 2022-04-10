@@ -24,7 +24,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   // create a custom nav bar with 2 buttons and logo in the middle. One button for the menu and one for the back
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      title: logo(50),
+      title: picture("logo", 50),
       centerTitle: true,
       backgroundColor: Colors.white,
       elevation: 0,

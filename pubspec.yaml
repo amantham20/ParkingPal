@@ -37,6 +37,7 @@ dependencies:
   map: ^1.0.0
   firebase_auth: ^3.3.13
   firebase_core: 
+  
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
       - assets/logo.png
+      - assets/Aman_Profile.png
+      - assets/Kollin_Profile.png
+      - assets/Raj_Profile.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

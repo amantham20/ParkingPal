@@ -28,7 +28,7 @@ class _TermsPageState extends State<TermsPage> {
               style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.bold, color: Colors.red),
             ),
-            logo(150),
+            picture("logo",150),
             const Text(
               'Parking Pal',
               style: TextStyle(

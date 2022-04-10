@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.bold, color: Colors.red),
             ),
-            logo(150),
+            picture("logo",150),
             const Text(
               'Parking Pal',
               style: TextStyle(
@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
                 controller: passwordController,
                 decoration: const InputDecoration(
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                       password: passwordController.text,
                     );
                     setState(() {
-                      movePage(HomePage(), context);
+                      movePage(const HomePage(), context);
                     });
                   } catch (e) {
                     print('error');
@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50))),
                 onPressed: () {
-                  movePage(SignupPage(), context);
+                  movePage(const SignupPage(), context);
                 },
                 child: const Padding(
                   padding: EdgeInsets.all(16.0),
