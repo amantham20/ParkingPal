@@ -26,34 +26,53 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   // create a custom nav bar with 2 buttons and logo in the middle. One button for the menu and one for the back
   AppBar buildAppBar(BuildContext context) {
-    return AppBar(
-      title: picture("logo", 50),
-      centerTitle: true,
-      backgroundColor: Colors.white,
-      elevation: 0,
-      leading: IconButton(
-        icon: const Icon(
-          Icons.menu,
-          color: Colors.black,
-        ),
-        onPressed: () {
-          // open the drawer
-          Scaffold.of(context).openDrawer();
-        },
-      ),
-      actions: [
-        IconButton(
+    if (nosecurity != 1) {
+      return AppBar(
+        title: picture("logo", 50),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
           icon: const Icon(
-            Icons.arrow_back,
+            Icons.menu,
             color: Colors.black,
           ),
           onPressed: () {
-            // go back to the previous page
-            Navigator.pop(context);
+            // open the drawer
+            Scaffold.of(context).openDrawer();
           },
         ),
-      ],
-    );
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              // go back to the previous page
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      );
+    } else {
+      return AppBar(
+        title: picture("logo", 50),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            // open the drawer
+            Scaffold.of(context).openDrawer();
+          },
+        ),
+      );
+    }
   }
 
   @override

@@ -7,8 +7,6 @@ import 'package:latlng/latlng.dart';
 import 'package:flutter/gestures.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'comp/customNavHome.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -156,7 +154,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBarHome(),
+      appBar: CustomAppBar(),
       drawer: const CustomDrawer(),
       // create a map here
       body: Stack(
