@@ -12,7 +12,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
-
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
 }
@@ -41,32 +40,40 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text('Home'),
             onTap: () {
               // close the drawer
-              Navigator.of(context).pop();
-              movePage(const HomePage(), context);
+              if (nosecurity != 1) {
+                Navigator.of(context).pop();
+                movePage(const HomePage(), context);
+              }
             },
           ),
           ListTile(
             leading: const Icon(Icons.info),
             title: const Text('About'),
             onTap: () {
-              Navigator.of(context).pop();
-              movePage(const AboutPage(), context);
+              if (nosecurity != 2) {
+                Navigator.of(context).pop();
+                movePage(const AboutPage(), context);
+              }
             },
           ),
           ListTile(
             leading: const Icon(Icons.pageview),
             title: const Text('Terms & Conditions'),
             onTap: () {
-              Navigator.of(context).pop();
-              movePage(const HomeTermsPage(), context);
+              if (nosecurity != 3) {
+                Navigator.of(context).pop();
+                movePage(const HomeTermsPage(), context);
+              }
             },
           ),
           ListTile(
             leading: const Icon(Icons.add_location),
             title: const Text('Add Listing'),
             onTap: () {
-              Navigator.of(context).pop();
-              movePage(const ListingPage(), context);
+              if (nosecurity != 4) {
+                Navigator.of(context).pop();
+                movePage(const ListingPage(), context);
+              }
             },
           ),
           ListTile(

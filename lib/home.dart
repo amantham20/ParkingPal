@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:parkingpal/comp/customdraw.dart';
 import 'package:parkingpal/comp/customnav.dart';
+import 'package:parkingpal/globalvar.dart';
 import 'package:map/map.dart';
 import 'package:latlng/latlng.dart';
 import 'package:flutter/gestures.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:parkingpal/test.dart';
 import 'package:parkingpal/test2.dart';
-
-import 'comp/customNavHome.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,6 +17,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    nosecurity = 1;
+  }
+
   bool isDrawerOpen = false;
   bool showDetails = false;
   List<Widget> rents = [];
@@ -158,7 +163,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBarHome(),
+      appBar: CustomAppBar(),
       drawer: const CustomDrawer(),
       // create a map here
       body: Stack(

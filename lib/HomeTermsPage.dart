@@ -13,6 +13,11 @@ class HomeTermsPage extends StatefulWidget {
 
 class _TermsPageState extends State<HomeTermsPage> {
   @override
+  void initState() {
+    super.initState();
+    nosecurity = 3;
+  }
+  @override
   Widget build(BuildContext context) {
     BoxDecoration(
       border: Border.all(),

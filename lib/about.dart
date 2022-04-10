@@ -14,6 +14,12 @@ class AboutPage extends StatefulWidget {
 
 class _AboutPageState extends State<AboutPage> {
   @override
+  void initState() {
+    super.initState();
+    nosecurity = 2;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(),

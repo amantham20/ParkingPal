@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:parkingpal/globalvar.dart';
 import 'package:parkingpal/comp/customdraw.dart';
 import 'package:parkingpal/comp/customnav.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,6 +19,11 @@ class _ListingPageState extends State<ListingPage> {
 
   String location = '';
   int price = 0;
+  @override
+  void initState() {
+    super.initState();
+    nosecurity = 4;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,6 +98,7 @@ class _ListingPageState extends State<ListingPage> {
                     })
                     .then((value) => print("added"))
                     .catchError((error) => print(error));
+
               },
             ),
           ),
