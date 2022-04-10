@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-=======
 import 'package:parkingpal/comp/customdrawabout.dart';
 import 'package:parkingpal/comp/customdrawhome.dart';
->>>>>>> 4d83160e664ecfc53d509d29c12f2d868fdb2211
 import 'package:parkingpal/comp/customdrawlistingrev.dart';
 import 'package:parkingpal/comp/customnav.dart';
 import 'package:parkingpal/globalvar.dart';
