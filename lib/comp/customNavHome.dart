@@ -2,10 +2,11 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
+import 'package:parkingpal/home.dart';
 import 'package:parkingpal/login.dart';
 
-class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  CustomAppBar({Key? key, this.onChanged})
+class CustomAppBarHome extends StatefulWidget implements PreferredSizeWidget {
+  CustomAppBarHome({Key? key, this.onChanged})
       : preferredSize = const Size.fromHeight(60.0),
         super(key: key);
 
@@ -15,10 +16,10 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   Size preferredSize;
 
   @override
-  State<CustomAppBar> createState() => _CustomAppBarState();
+  State<CustomAppBarHome> createState() => _CustomAppBarState();
 }
 
-class _CustomAppBarState extends State<CustomAppBar> {
+class _CustomAppBarState extends State<CustomAppBarHome> {
   @override
   void initState() {
     super.initState();
@@ -41,18 +42,6 @@ class _CustomAppBarState extends State<CustomAppBar> {
           Scaffold.of(context).openDrawer();
         },
       ),
-      actions: [
-        IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            // go back to the previous page
-            Navigator.pop(context);
-          },
-        ),
-      ],
     );
   }
 

@@ -6,6 +6,8 @@ import 'package:latlng/latlng.dart';
 import 'package:flutter/gestures.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'comp/customNavHome.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -147,7 +149,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBarHome(),
       drawer: const CustomDrawer(),
       // create a map here
       body: Stack(
@@ -162,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                 duration: const Duration(seconds: 1),
                 // Provide an optional curve to make the animation feel smoother.
                 curve: Curves.fastOutSlowIn,
-                margin: EdgeInsets.only(top: 10),
+                margin: const EdgeInsets.only(top: 10),
                 height: MediaQuery.of(context).size.height /
                     (isDrawerOpen ? 1 : 4.5),
                 decoration: const BoxDecoration(
@@ -223,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                       child: ListView(
                         scrollDirection:
                             showDetails ? Axis.vertical : Axis.horizontal,
-                        children: [
+                        children: const [
                           Text("TesT"),
                           SizedBox(height: 10),
                           Text("TesT"),
@@ -232,7 +234,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 50 / 2)
+                    const SizedBox(height: 50 / 2)
                   ],
                 ),
               ),
@@ -265,7 +267,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.green,
         onPressed: _gotoDefault,
         tooltip: 'My Location',
-        child: Icon(Icons.my_location, color: Colors.white),
+        child: const Icon(Icons.my_location, color: Colors.white),
       ),
     );
   }
