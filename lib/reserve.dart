@@ -36,9 +36,11 @@ class _ReservePageState extends State<ReservePage> {
             ),
             const Padding(
               padding: EdgeInsets.all(20.0),
-              child: Text(
-                "How many hours would you like to reserve?",
-                style: TextStyle(fontSize: 20),
+              child: Center(
+                child: Text(
+                  "How many hours would you like to reserve?",
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ),
             Slider(
@@ -57,11 +59,14 @@ class _ReservePageState extends State<ReservePage> {
               "You have selected " + value.toString() + " hours",
               style: const TextStyle(fontSize: 20),
             ),
-            ElevatedButton(
-              child: const Text("Reserve"),
-              onPressed: () {
-                movePage(HomePage(), context);
-              },
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: ElevatedButton(
+                child: const Text("Reserve"),
+                onPressed: () {
+                  movePage(HomePage(), context);
+                },
+              ),
             ),
           ],
         ),
