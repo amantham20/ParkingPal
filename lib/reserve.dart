@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parkingpal/comp/customdrawabout.dart';
 import 'package:parkingpal/comp/customdrawhome.dart';
-import 'package:parkingpal/comp/customdrawlisting%20copy.dart';
+import 'package:parkingpal/comp/customdrawlistingrev.dart';
 import 'package:parkingpal/comp/customnav.dart';
 import 'package:parkingpal/globalvar.dart';
 import 'package:parkingpal/home.dart';
@@ -18,7 +18,6 @@ class _ReservePageState extends State<ReservePage> {
   double value = 0;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     nosecurity = 0;
   }
@@ -28,13 +27,20 @@ class _ReservePageState extends State<ReservePage> {
     return Scaffold(
       appBar: CustomAppBar(),
       drawer: const CustomDrawlistingRev(),
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              "How many hours do you want to reserve?",
-              style: TextStyle(fontSize: 20),
+            picture("logo", 200),
+            const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Center(
+                child: Text(
+                  "How many hours would you like to reserve?",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
             ),
             Slider(
               value: value,
@@ -55,7 +61,7 @@ class _ReservePageState extends State<ReservePage> {
             ElevatedButton(
               child: const Text("Reserve"),
               onPressed: () {
-                movePage(HomePage(), context);
+                movePage(const HomePage(), context);
               },
             ),
           ],
