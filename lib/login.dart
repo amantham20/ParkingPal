@@ -20,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 100, 16, 0),
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.bold, color: Colors.red),
             ),
-            picture("logo",150),
+            picture("logo", 150),
             const Text(
               'Parking Pal',
               style: TextStyle(
