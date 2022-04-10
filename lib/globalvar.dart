@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+int  nosecurity = 0;
+
 movePage(page, context) {
   Navigator.push(context, MaterialPageRoute(builder: (context) => page));
 }

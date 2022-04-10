@@ -21,22 +21,30 @@ class _TermsPageState extends State<TermsPage> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(16, 50, 16, 0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(0.0),
-              // make a backbutton icon
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  movePage(const SignupPage(), context);
-                },
-              ),
-            ),
-            const Text(
-              'Terms and Conditions',
-              style: TextStyle(
-                  fontSize: 25, fontWeight: FontWeight.bold, color: Colors.red),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  // make a backbutton icon
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back),
+                    onPressed: () {
+                      movePage(const SignupPage(), context);
+                    },
+                  ),
+                ),
+                const Text(
+                  'Terms and Conditions',
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red),
+                ),
+              ],
             ),
             picture("logo", 150),
             const Text(

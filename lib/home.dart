@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parkingpal/comp/customdraw.dart';
 import 'package:parkingpal/comp/customnav.dart';
+import 'package:parkingpal/globalvar.dart';
 import 'package:map/map.dart';
 import 'package:latlng/latlng.dart';
 import 'package:flutter/gestures.dart';
@@ -16,6 +17,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    nosecurity = 1;
+  }
+
   bool isDrawerOpen = false;
   bool showDetails = false;
   final controller = MapController(
