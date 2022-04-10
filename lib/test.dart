@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:parkingpal/comp/customdraw.dart';
+import 'package:parkingpal/comp/customdrawabout.dart';
+import 'package:parkingpal/comp/customdrawhome.dart';
 import 'package:parkingpal/comp/customnav.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:parkingpal/globalvar.dart';
+import 'package:parkingpal/reserve.dart';
+import 'package:parkingpal/test2.dart';
 
 import 'package:parkingpal/globalvar.dart';
 
@@ -48,7 +52,12 @@ class _TestClassState extends State<TestClass> {
                   child: ListTile(
                     title: Text(item['loc']),
                     // convert price to string and add $ and make it in subtitile
-                    subtitle: Text("\$ " + item['price'].toString()),
+                    subtitle: item['price'] == 0
+                        ? const Text("Free Parking")
+                        : Text("\$ " + item['price'].toString()),
+                    onTap: () {
+                      movePage(ReservePage(), context);
+                    },
                   ),
                 );
               },

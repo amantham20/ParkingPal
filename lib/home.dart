@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:parkingpal/comp/customdraw.dart';
+import 'package:parkingpal/comp/customdrawabout.dart';
+import 'package:parkingpal/comp/customdrawhome.dart';
 import 'package:parkingpal/comp/customnav.dart';
 import 'package:parkingpal/globalvar.dart';
 import 'package:map/map.dart';
@@ -17,13 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-    nosecurity = 1;
-    markers.add(LatLng(42.72911, -84.485568));
-  }
-
   bool isDrawerOpen = false;
   bool showDetails = false;
   List<Widget> rents = [];
@@ -36,6 +30,11 @@ class _HomePageState extends State<HomePage> {
   //   LatLng(43.573, -84.484),
   //   LatLng(43.7370, -84.45),
   // ];
+  @override
+  void initState() {
+    super.initState();
+    nosecurity = 1;
+  }
 
   getRentals() {
     final Stream<QuerySnapshot> rental =
@@ -165,7 +164,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(),
-      drawer: const CustomDrawer(),
+      drawer: const CustomDrawhome(),
       // create a map here
       body: Stack(
         alignment: Alignment.bottomCenter,
@@ -221,17 +220,6 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                             ),
-                            Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.filter_alt,
-                                    color: Colors.green,
-                                  ),
-                                )
-                              ],
-                            )
                           ],
                         ),
                       ),

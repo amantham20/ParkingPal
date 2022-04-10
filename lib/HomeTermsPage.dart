@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:parkingpal/comp/customdrawhometerms.dart';
 import 'package:parkingpal/globalvar.dart';
 
-import 'comp/customdraw.dart';
+import 'comp/customdrawabout.dart';
 import 'comp/customnav.dart';
 
 class HomeTermsPage extends StatefulWidget {
@@ -17,6 +18,13 @@ class _TermsPageState extends State<HomeTermsPage> {
     super.initState();
     nosecurity = 3;
   }
+
+@override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    nosecurity = 3;
+  }
+
   @override
   Widget build(BuildContext context) {
     BoxDecoration(
@@ -25,7 +33,7 @@ class _TermsPageState extends State<HomeTermsPage> {
     );
     return Scaffold(
       appBar: CustomAppBar(),
-      drawer: const CustomDrawer(),
+      drawer: const CustomDrawhometerms(),
       backgroundColor: Colors.white,
       /*
        * The code to build the label of the page at the top
