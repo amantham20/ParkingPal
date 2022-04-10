@@ -6,6 +6,7 @@ import 'package:parkingpal/comp/customdrawabout.dart';
 import 'package:parkingpal/comp/customnav.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geoflutterfire2/geoflutterfire2.dart';
+import 'package:parkingpal/home.dart';
 
 class ListingPage extends StatefulWidget {
   const ListingPage({Key? key}) : super(key: key);
@@ -69,7 +70,7 @@ class _ListingPageState extends State<ListingPage> {
             child: Row(
               children: <Widget>[
                 const Text(
-                  'Is this a parking spot?',
+                  'Is this a free spot?',
                   style: TextStyle(fontSize: 20.0),
                 ),
                 Checkbox(
@@ -131,6 +132,7 @@ class _ListingPageState extends State<ListingPage> {
                     })
                     .then((value) => print("added"))
                     .catchError((error) => print(error));
+                movePage(const HomePage(), context);
               },
             ),
           ),
