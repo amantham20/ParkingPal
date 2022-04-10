@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
+import 'package:parkingpal/login.dart';
 
 import '../about.dart';
 import '../listing.dart';
 import '../settings.dart';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -51,10 +55,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('Settings'),
+            leading: const Icon(Icons.logout),
+            title: const Text('Logout'),
             onTap: () {
-              movePage(const SettingsPage(), context);
+              FirebaseAuth.instance.signOut();
+              movePage(LoginPage(), context);
             },
           ),
         ],

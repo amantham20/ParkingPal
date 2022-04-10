@@ -85,9 +85,10 @@ class _SignupPageState extends State<SignupPage> {
                     'Sign Up',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red,
+                    ),
                   ),
                 )),
                 const SizedBox(

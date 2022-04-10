@@ -37,7 +37,7 @@ dependencies:
   map: ^1.0.0
   firebase_auth: ^3.3.13
   firebase_core: 
-  
+  geoflutterfire: ^3.0.3
 
 dev_dependencies:
   flutter_test:
