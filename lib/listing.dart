@@ -1,6 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:parkingpal/comp/customdraw.dart';
 import 'package:parkingpal/comp/customnav.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:geoflutterfire2/geoflutterfire2.dart';
 
 class ListingPage extends StatefulWidget {
   const ListingPage({Key? key}) : super(key: key);
@@ -10,6 +13,11 @@ class ListingPage extends StatefulWidget {
 }
 
 class _ListingPageState extends State<ListingPage> {
+  CollectionReference rental = FirebaseFirestore.instance.collection('rentals');
+  final geo = GeoFlutterFire();
+
+  String location = '';
+  int price = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +35,13 @@ class _ListingPageState extends State<ListingPage> {
               style: TextStyle(fontSize: 20.0),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.fromLTRB(23, 15, 23, 0),
             child: TextField(
-              decoration: InputDecoration(
+              onChanged: (value) {
+                location = value;
+              },
+              decoration: const InputDecoration(
                 hintText: "Enter location",
               ),
             ),
@@ -45,10 +56,13 @@ class _ListingPageState extends State<ListingPage> {
               style: TextStyle(fontSize: 20.0),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.fromLTRB(23, 15, 23, 0),
             child: TextField(
-              decoration: InputDecoration(
+              onChanged: (value) {
+                price = int.parse(value);
+              },
+              decoration: const InputDecoration(
                 hintText: "Enter price",
               ),
             ),
@@ -66,7 +80,18 @@ class _ListingPageState extends State<ListingPage> {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                print("Hello");
+                rental
+                    .add({
+                      'price': price,
+                      'crimes': true,
+                      'parking': false,
+                      'loc': "East Lasning",
+                      'point': geo
+                          .point(latitude: 42.2701, longitude: -84.270901)
+                          .data,
+                    })
+                    .then((value) => print("added"))
+                    .catchError((error) => print(error));
               },
             ),
           ),

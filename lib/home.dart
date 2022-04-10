@@ -4,7 +4,7 @@ import 'package:parkingpal/comp/customnav.dart';
 import 'package:map/map.dart';
 import 'package:latlng/latlng.dart';
 import 'package:flutter/gestures.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,6 +21,8 @@ class _HomePageState extends State<HomePage> {
   );
   final markers = [
     LatLng(42.7370, -84.4893),
+    LatLng(43.573, -84.484),
+    LatLng(43.7370, -84.45),
   ];
 
   void _gotoDefault() {

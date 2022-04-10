@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:parkingpal/home.dart';
 import 'package:parkingpal/login.dart';
-import 'package:parkingpal/signup.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:parkingpal/test.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
@@ -47,7 +46,7 @@ class _AppState extends State<App> {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: const TestClass(),
     );
   }
 }
