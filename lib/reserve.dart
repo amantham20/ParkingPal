@@ -25,13 +25,21 @@ class _ReservePageState extends State<ReservePage> {
     return Scaffold(
       appBar: CustomAppBar(),
       drawer: const CustomDrawlistingRev(),
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              "How many hours do you want to reserve?",
-              style: TextStyle(fontSize: 20),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: picture("logo", 200),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                "How many hours would you like to reserve?",
+                style: TextStyle(fontSize: 20),
+              ),
             ),
             Slider(
               value: value,
