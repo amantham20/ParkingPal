@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
 import 'package:parkingpal/login.dart';
 
+import '../HomeTermsPage.dart';
 import '../about.dart';
 import '../listing.dart';
 import '../settings.dart';
@@ -48,6 +49,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.info),
+            title: const Text('Terms & Conditions'),
+            onTap: () {
+              movePage(const HomeTermsPage(), context);
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.add_location),
             title: const Text('Add Listing'),
             onTap: () {
@@ -59,7 +67,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text('Logout'),
             onTap: () {
               FirebaseAuth.instance.signOut();
-              movePage(LoginPage(), context);
+              movePage(const LoginPage(), context);
             },
           ),
         ],
