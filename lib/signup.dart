@@ -58,7 +58,7 @@ class _SignupPageState extends State<SignupPage> {
       /*
        * The code to build the label of the page at the top
        */
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(16, 50, 16, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,7 +75,7 @@ class _SignupPageState extends State<SignupPage> {
                   child: IconButton(
                     icon: const Icon(Icons.arrow_back),
                     onPressed: () {
-                      Navigator.pop(context);
+                      movePage(const LoginPage(), context);
                     },
                   ),
                 ),
@@ -96,7 +96,7 @@ class _SignupPageState extends State<SignupPage> {
                 )
               ],
             ),
-            picture("logo",150),
+            picture("logo", 150),
             const Text(
               'Parking Pal',
               style: TextStyle(

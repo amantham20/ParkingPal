@@ -133,7 +133,8 @@ class _AboutPageState extends State<AboutPage> {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(top: 15, left: 10, right: 10),
+              padding:
+                  EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 50),
               child: Text(
                 "This is an app to help people save on parking costs and to help people find reasonable parking spots. It is a mult-purpose app though. It has the functionality of a map that displays both location and all the rentable parking spots within our database. We also have the functionality to post your parking spot, once confirmed to our database so it is visible for renters to rent when they are in need. The application can not only show the user all available spots, but also allow the user to mark their spot as taken after they have purchased it.",
                 textAlign: TextAlign.start,
