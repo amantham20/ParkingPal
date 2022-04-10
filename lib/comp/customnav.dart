@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
 import 'package:parkingpal/login.dart';
