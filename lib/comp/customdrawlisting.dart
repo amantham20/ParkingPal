@@ -19,6 +19,7 @@ class CustomDrawlisting extends StatefulWidget {
 class _CustomDrawerState extends State<CustomDrawlisting> {
   @override
   Widget build(BuildContext context) {
+    double border = 1;
     // create a custom drawer with 4 list items and a button to close the drawer on the right.
     // The drawer is closed by default and can be opened by clicking the menu button on the top left.
     // drawer will have home, about, add listing and settings
@@ -26,12 +27,36 @@ class _CustomDrawerState extends State<CustomDrawlisting> {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
-            child: Text(
-              'Menu',
-              style: TextStyle(fontSize: 25),
+          DrawerHeader(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  right: 10, left: 10, bottom: 20, top: 0),
+              child: Center(
+                child: Text(
+                  'Parking Pal',
+                  style: TextStyle(
+                      shadows: [
+                        Shadow(
+                            offset: Offset(-border, -border),
+                            color: Colors.black),
+                        Shadow(
+                            offset: Offset(border, -border),
+                            color: Colors.black),
+                        Shadow(
+                            offset: Offset(border, border),
+                            color: Colors.black),
+                        Shadow(
+                            offset: Offset(-border, border),
+                            color: Colors.black),
+                      ],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 45,
+                      color: Colors.white,
+                      decorationColor: Colors.black),
+                ),
+              ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.green,
             ),
           ),

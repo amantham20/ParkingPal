@@ -50,7 +50,7 @@ class _ListingPageState extends State<ListingPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(23, 15, 23, 0),
+            padding: const EdgeInsets.fromLTRB(23, 15, 23, 0),
             child: TextField(
               onChanged: (value) {
                 location = value;
@@ -71,7 +71,7 @@ class _ListingPageState extends State<ListingPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(23, 15, 23, 0),
+            padding: const EdgeInsets.fromLTRB(23, 15, 23, 0),
             child: TextField(
               onChanged: (value) {
                 price = int.parse(value);
@@ -86,7 +86,7 @@ class _ListingPageState extends State<ListingPage> {
           ),
           // create an elevated button with green color for submit
           Padding(
-            padding: EdgeInsets.fromLTRB(23, 15, 23, 0),
+            padding: const EdgeInsets.fromLTRB(23, 15, 23, 0),
             child: RaisedButton(
               color: Colors.green,
               child: const Text(
@@ -99,7 +99,7 @@ class _ListingPageState extends State<ListingPage> {
                       'price': price,
                       'crimes': true,
                       'parking': false,
-                      'loc': "East Lasning",
+                      'loc': location,
                       'point': geo
                           .point(latitude: 42.2701, longitude: -84.270901)
                           .data,
