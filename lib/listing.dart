@@ -19,7 +19,7 @@ class _ListingPageState extends State<ListingPage> {
   final geo = GeoFlutterFire();
 
   String location = '';
-  int price = 0;
+  double price = 0;
   bool isParking = false;
   @override
   void initState() {
@@ -99,7 +99,7 @@ class _ListingPageState extends State<ListingPage> {
                   padding: const EdgeInsets.fromLTRB(23, 15, 23, 0),
                   child: TextField(
                     onChanged: (value) {
-                      price = int.parse(value);
+                      price = double.parse(value);
                     },
                     decoration: const InputDecoration(
                       hintText: "Enter price",
