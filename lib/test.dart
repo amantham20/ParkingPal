@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:parkingpal/comp/customdraw.dart';
 import 'package:parkingpal/comp/customnav.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:parkingpal/globalvar.dart';
+import 'package:parkingpal/reserve.dart';
+import 'package:parkingpal/test2.dart';
 
 class TestClass extends StatefulWidget {
   const TestClass({Key? key}) : super(key: key);
@@ -33,11 +36,17 @@ class _TestClassState extends State<TestClass> {
               itemCount: data.size,
               itemBuilder: (BuildContext context, int index) {
                 final item = data.docs[index];
+
                 return Card(
                   child: ListTile(
                     title: Text(item['loc']),
                     // convert price to string and add $ and make it in subtitile
-                    subtitle: Text("\$ " + item['price'].toString()),
+                    subtitle: item['price'] == 0
+                        ? const Text("Free Parking")
+                        : Text("\$ " + item['price'].toString()),
+                    onTap: () {
+                      movePage(ReservePage(), context);
+                    },
                   ),
                 );
               },
