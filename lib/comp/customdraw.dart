@@ -49,7 +49,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.info),
+            leading: const Icon(Icons.pageview),
             title: const Text('Terms & Conditions'),
             onTap: () {
               movePage(const HomeTermsPage(), context);
