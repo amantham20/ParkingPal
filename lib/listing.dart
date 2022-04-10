@@ -20,6 +20,7 @@ class _ListingPageState extends State<ListingPage> {
 
   String location = '';
   int price = 0;
+  bool isParking = false;
   @override
   void initState() {
     super.initState();
@@ -63,27 +64,51 @@ class _ListingPageState extends State<ListingPage> {
           const SizedBox(
             height: 20,
           ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(23, 15, 23, 0),
-            child: Text(
-              'Price',
-              style: TextStyle(fontSize: 20.0),
-            ),
-          ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(23, 15, 23, 0),
-            child: TextField(
-              onChanged: (value) {
-                price = int.parse(value);
-              },
-              decoration: const InputDecoration(
-                hintText: "Enter price",
-              ),
+            padding: EdgeInsets.fromLTRB(23, 15, 23, 0),
+            child: Row(
+              children: <Widget>[
+                const Text(
+                  'Is this a parking spot?',
+                  style: TextStyle(fontSize: 20.0),
+                ),
+                Checkbox(
+                  value: isParking,
+                  onChanged: (value) {
+                    setState(() {
+                      isParking = value!;
+                    });
+                  },
+                ),
+              ],
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          isParking == false
+              ? const Padding(
+                  padding: EdgeInsets.fromLTRB(23, 15, 23, 0),
+                  child: Text(
+                    'Price',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                )
+              : const SizedBox(
+                  height: 20,
+                ),
+          isParking == false
+              ? Padding(
+                  padding: const EdgeInsets.fromLTRB(23, 15, 23, 0),
+                  child: TextField(
+                    onChanged: (value) {
+                      price = int.parse(value);
+                    },
+                    decoration: const InputDecoration(
+                      hintText: "Enter price",
+                    ),
+                  ),
+                )
+              : const SizedBox(
+                  height: 20,
+                ),
           // create an elevated button with green color for submit
           Padding(
             padding: const EdgeInsets.fromLTRB(23, 15, 23, 0),
@@ -96,7 +121,7 @@ class _ListingPageState extends State<ListingPage> {
               onPressed: () {
                 rental
                     .add({
-                      'price': price,
+                      'price': isParking == false ? price : 0,
                       'crimes': true,
                       'parking': false,
                       'loc': location,

@@ -49,16 +49,19 @@ class _TestClassState extends State<TestClass> {
                 markers.add(LatLng(lat, lng));
 
                 return Card(
-                  child: ListTile(
-                    title: Text(item['loc']),
-                    // convert price to string and add $ and make it in subtitile
-                    subtitle: item['price'] == 0
-                        ? const Text("Free Parking")
-                        : Text("\$ " + item['price'].toString()),
-                    onTap: () {
-                      movePage(ReservePage(), context);
-                    },
-                  ),
+                  child: item['parking'] == false
+                      ? ListTile(
+                          title: Text(item['loc']),
+                          // convert price to string and add $ and make it in subtitile
+                          subtitle: item['price'] == 0
+                              ? const Text("Free Parking")
+                              : Text("\$ " + item['price'].toString()),
+                          onTap: () {
+                            // create a checkbox to show if the user has reserved the parking spot
+                            movePage(ReservePage(), context);
+                          },
+                        )
+                      : Container(),
                 );
               },
             );
