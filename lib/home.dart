@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     nosecurity = 1;
+    markers.add(LatLng(42.72911, -84.485568));
   }
 
   bool isDrawerOpen = false;
@@ -30,11 +31,11 @@ class _HomePageState extends State<HomePage> {
   final controller = MapController(
     location: LatLng(42.71911, -84.484568),
   );
-  final markers = [
-    LatLng(42.7370, -84.4893),
-    LatLng(43.573, -84.484),
-    LatLng(43.7370, -84.45),
-  ];
+  // final markers = [
+  //   LatLng(42.7370, -84.4893),
+  //   LatLng(43.573, -84.484),
+  //   LatLng(43.7370, -84.45),
+  // ];
 
   getRentals() {
     final Stream<QuerySnapshot> rental =
