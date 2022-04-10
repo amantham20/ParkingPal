@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
 import 'package:parkingpal/home.dart';
 
-import 'comp/customdraw.dart';
+import 'comp/customdrawabout.dart';
 import 'comp/customnav.dart';
 
 class AboutPage extends StatefulWidget {
@@ -20,10 +20,16 @@ class _AboutPageState extends State<AboutPage> {
   }
 
   @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    nosecurity = 2;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(),
-      drawer: const CustomDrawer(),
+      drawer: const CustomDrawabout(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(

@@ -19,11 +19,6 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   // create a custom nav bar with 2 buttons and logo in the middle. One button for the menu and one for the back
   AppBar buildAppBar(BuildContext context) {
     if (nosecurity != 1) {

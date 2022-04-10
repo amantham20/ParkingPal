@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:parkingpal/comp/customdraw.dart';
+import 'package:parkingpal/comp/customdrawabout.dart';
+import 'package:parkingpal/comp/customdrawhome.dart';
 import 'package:parkingpal/comp/customnav.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -17,7 +18,7 @@ class _TestClassState extends State<TestClass> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(),
-      drawer: const CustomDrawer(),
+      drawer: const CustomDrawhome(),
       body: Container(
         child: StreamBuilder<QuerySnapshot>(
             stream: rental,
