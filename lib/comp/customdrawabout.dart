@@ -29,8 +29,7 @@ class _CustomDrawerState extends State<CustomDrawabout> {
         children: <Widget>[
           const DrawerHeader(
             child: Padding(
-              padding: EdgeInsets.only(
-                  right: 10, left: 10, bottom: 20, top: 0),
+              padding: EdgeInsets.only(right: 10, left: 10, bottom: 20, top: 0),
               child: Center(
                 child: Text(
                   'Parking Pal',
@@ -43,7 +42,7 @@ class _CustomDrawerState extends State<CustomDrawabout> {
               ),
             ),
             decoration: BoxDecoration(
-              color: Colors.green,
+              color: Color.fromARGB(255, 4, 117, 9),
             ),
           ),
           ListTile(
