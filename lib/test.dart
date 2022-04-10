@@ -7,6 +7,10 @@ import 'package:parkingpal/globalvar.dart';
 import 'package:parkingpal/reserve.dart';
 import 'package:parkingpal/test2.dart';
 
+import 'package:parkingpal/globalvar.dart';
+
+import 'package:latlng/latlng.dart';
+
 class TestClass extends StatefulWidget {
   const TestClass({Key? key}) : super(key: key);
 
@@ -37,6 +41,12 @@ class _TestClassState extends State<TestClass> {
               itemCount: data.size,
               itemBuilder: (BuildContext context, int index) {
                 final item = data.docs[index];
+                // markers.add(LatLng(item['point'].data, data.longitude))
+                GeoPoint geoPoint = item['point']['geopoint'];
+                double lat = geoPoint.latitude;
+                double lng = geoPoint.longitude;
+                print("LatLng(" + lat.toString() + "," + lng.toString() + ")");
+                markers.add(LatLng(lat, lng));
 
                 return Card(
                   child: ListTile(

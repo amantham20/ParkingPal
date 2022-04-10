@@ -25,11 +25,11 @@ class _HomePageState extends State<HomePage> {
   final controller = MapController(
     location: LatLng(42.71911, -84.484568),
   );
-  final markers = [
-    LatLng(42.7370, -84.4893),
-    LatLng(43.573, -84.484),
-    LatLng(43.7370, -84.45),
-  ];
+  // final markers = [
+  //   LatLng(42.7370, -84.4893),
+  //   LatLng(43.573, -84.484),
+  //   LatLng(43.7370, -84.45),
+  // ];
   @override
   void initState() {
     super.initState();
