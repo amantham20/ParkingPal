@@ -4,7 +4,6 @@ import 'package:parkingpal/login.dart';
 
 import '../about.dart';
 import '../listing.dart';
-import '../settings.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,9 +26,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
         padding: EdgeInsets.zero,
         children: <Widget>[
           const DrawerHeader(
-            child: Text('Menu'),
+            child: Text(
+              'Menu',
+              style: TextStyle(fontSize: 25),
+            ),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.green,
             ),
           ),
           ListTile(
@@ -59,7 +61,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text('Logout'),
             onTap: () {
               FirebaseAuth.instance.signOut();
-              movePage(LoginPage(), context);
+              movePage(const LoginPage(), context);
             },
           ),
         ],
