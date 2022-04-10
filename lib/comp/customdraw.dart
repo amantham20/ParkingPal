@@ -41,6 +41,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text('Home'),
             onTap: () {
               // close the drawer
+              Navigator.of(context).pop();
               movePage(const HomePage(), context);
             },
           ),
@@ -48,6 +49,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             leading: const Icon(Icons.info),
             title: const Text('About'),
             onTap: () {
+              Navigator.of(context).pop();
               movePage(const AboutPage(), context);
             },
           ),
@@ -55,6 +57,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             leading: const Icon(Icons.pageview),
             title: const Text('Terms & Conditions'),
             onTap: () {
+              Navigator.of(context).pop();
               movePage(const HomeTermsPage(), context);
             },
           ),
@@ -62,6 +65,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             leading: const Icon(Icons.add_location),
             title: const Text('Add Listing'),
             onTap: () {
+              Navigator.of(context).pop();
               movePage(const ListingPage(), context);
             },
           ),
@@ -69,6 +73,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),
             onTap: () {
+              Navigator.of(context).pop();
               FirebaseAuth.instance.signOut();
               movePage(const LoginPage(), context);
             },
