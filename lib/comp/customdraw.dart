@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
+import 'package:parkingpal/home.dart';
 import 'package:parkingpal/login.dart';
 
 import '../HomeTermsPage.dart';
@@ -40,7 +41,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text('Home'),
             onTap: () {
               // close the drawer
-              Navigator.pop(context);
+              movePage(const HomePage(), context);
             },
           ),
           ListTile(
