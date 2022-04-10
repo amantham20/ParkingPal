@@ -195,7 +195,7 @@ class _SignupPageState extends State<SignupPage> {
                   movePage(const TermsPage(), context);
                 },
                 child: const Text(
-                  'Terms and Conditions.',
+                  'Terms and Conditions',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
