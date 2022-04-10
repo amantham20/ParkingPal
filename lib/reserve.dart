@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:parkingpal/comp/customdraw.dart';
+import 'package:parkingpal/comp/customdrawabout.dart';
+import 'package:parkingpal/comp/customdrawhome.dart';
 import 'package:parkingpal/comp/customnav.dart';
 
 class ReservePage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _ReservePageState extends State<ReservePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(),
-      drawer: const CustomDrawer(),
+      drawer: const CustomDrawabout(),
       // Make with a slider for how many hours you want to reserve from 1 to 10.
       body: SingleChildScrollView(
         child: Column(
