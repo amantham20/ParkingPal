@@ -27,28 +27,13 @@ class _CustomDrawerState extends State<CustomDrawlisting> {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
+          const DrawerHeader(
             child: Padding(
-              padding: const EdgeInsets.only(
-                  right: 10, left: 10, bottom: 20, top: 0),
+              padding: EdgeInsets.only(right: 10, left: 10, bottom: 20, top: 0),
               child: Center(
                 child: Text(
                   'Parking Pal',
                   style: TextStyle(
-                      shadows: [
-                        Shadow(
-                            offset: Offset(-border, -border),
-                            color: Colors.black),
-                        Shadow(
-                            offset: Offset(border, -border),
-                            color: Colors.black),
-                        Shadow(
-                            offset: Offset(border, border),
-                            color: Colors.black),
-                        Shadow(
-                            offset: Offset(-border, border),
-                            color: Colors.black),
-                      ],
                       fontWeight: FontWeight.bold,
                       fontSize: 45,
                       color: Colors.white,
@@ -56,7 +41,7 @@ class _CustomDrawerState extends State<CustomDrawlisting> {
                 ),
               ),
             ),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.green,
             ),
           ),

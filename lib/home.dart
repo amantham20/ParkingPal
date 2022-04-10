@@ -220,17 +220,6 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                             ),
-                            Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.filter_alt,
-                                    color: Colors.green,
-                                  ),
-                                )
-                              ],
-                            )
                           ],
                         ),
                       ),
