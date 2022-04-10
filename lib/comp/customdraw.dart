@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:parkingpal/globalvar.dart';
 import 'package:parkingpal/login.dart';
 
+import '../HomeTermsPage.dart';
 import '../about.dart';
 import '../listing.dart';
 
@@ -47,6 +48,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text('About'),
             onTap: () {
               movePage(const AboutPage(), context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.pageview),
+            title: const Text('Terms & Conditions'),
+            onTap: () {
+              movePage(const HomeTermsPage(), context);
             },
           ),
           ListTile(
