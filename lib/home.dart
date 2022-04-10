@@ -7,6 +7,8 @@ import 'package:map/map.dart';
 import 'package:latlng/latlng.dart';
 import 'package:flutter/gestures.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:parkingpal/test.dart';
+import 'package:parkingpal/test2.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,6 +20,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isDrawerOpen = false;
   bool showDetails = false;
+  List<Widget> rents = [];
+  List<Widget> rentsfull = [];
   final controller = MapController(
     location: LatLng(42.71911, -84.484568),
   );
@@ -30,6 +34,11 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     nosecurity = 1;
+  }
+
+  getRentals() {
+    final Stream<QuerySnapshot> rental =
+        FirebaseFirestore.instance.collection('rentals').snapshots();
   }
 
   void _gotoDefault() {
@@ -228,16 +237,11 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Expanded(
                       child: ListView(
-                        scrollDirection:
-                            showDetails ? Axis.vertical : Axis.horizontal,
-                        children: const [
-                          Text("TesT"),
-                          SizedBox(height: 10),
-                          Text("TesT"),
-                          SizedBox(height: 10),
-                          Text("TesT"),
-                        ],
-                      ),
+                          scrollDirection:
+                              showDetails ? Axis.vertical : Axis.horizontal,
+                          children: const <Widget>[
+                            TestClass(),
+                          ]),
                     ),
                     const SizedBox(height: 50 / 2)
                   ],
